@@ -13,7 +13,7 @@ const ProductListingPage = () => {
     const loadProducts = async () => {
       try {
         setLoading(true);
-        const response = await fetch("http://localhost:5000/api/products");
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/products`);
 
         if (!response.ok) throw new Error("Failed to fetch products");
         const data = await response.json();

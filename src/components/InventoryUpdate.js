@@ -12,7 +12,7 @@ const InventoryUpdate = () => {
   useEffect(() => {
     const fetchInventory = async () => {
       try {
-        const response = await fetch(`/api/inventory/${productId}`);
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/inventory/${productId}`);
         const data = await response.json();
         setInventory(data);
       } catch (err) {
@@ -37,7 +37,7 @@ const InventoryUpdate = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch(`/api/inventory/${productId}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/inventory/${productId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
