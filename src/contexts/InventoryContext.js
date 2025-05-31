@@ -15,7 +15,7 @@ export const InventoryProvider = ({ children }) => {
   const fetchInventory = useCallback(async (productId) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/inventory/${productId}`
+        `${process.env.REACT_APP_API_URL}/api/inventory/${productId}`
       );
       console.log(response.json);
       const data = await response.json();
